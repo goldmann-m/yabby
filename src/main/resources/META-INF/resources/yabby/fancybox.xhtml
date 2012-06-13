@@ -1,0 +1,60 @@
+<ui:composition	xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:cc="http://java.sun.com/jsf/composite"
+				xmlns:ui="http://java.sun.com/jsf/facelets">
+  <!-- INTERFACE -->
+	<cc:interface>
+		<cc:attribute name="domSelector" required="true" type="java.lang.String"/>
+	</cc:interface>
+
+  <!-- IMPLEMENTATION -->          
+	<cc:implementation>
+		<h:outputStylesheet name="jquery.fancybox.css" library="css" />
+		<h:outputStylesheet name="jquery.fancybox-buttons.css" library="css" />
+		<h:outputStylesheet name="jquery.fancybox-thumbs.css" library="css" />
+
+		<h:outputScript name="jquery.fancybox.pack.js" library="js" />
+		<h:outputScript name="jquery.mousewheel-3.0.6.pack.js" library="js"/>
+		<h:outputScript name="jquery.fancybox-buttons.js" library="js"/>
+		<h:outputScript name="jquery.fancybox-thumbs.js" library="js"/>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#{cc.attrs.domSelector}").fancybox({
+					openEffect	: 'fade',
+					prevEffect	: 'fade',
+					nextEffect	: 'fade',
+					openSpeed	: 'slow',
+					arrows		: 'true',
+		
+					beforeShow: function () {
+			            /* Disable right click */
+			            $.fancybox.wrap.bind("contextmenu", function (e) {
+			                    return false; 
+			            });
+			        },
+					
+					helpers	: {
+						title	: {
+							type: 'inside'
+						},
+						
+						overlay	: {
+							opacity : 0.8,
+							css : {
+								'background-color' : '#000'
+							}
+						},
+						
+						thumbs	: {
+							width	: 50,
+							height	: 50
+						},
+						
+						buttons	: {}
+					}
+				});
+			});
+		</script>
+	</cc:implementation>
+</ui:composition>
