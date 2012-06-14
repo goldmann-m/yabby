@@ -11,7 +11,10 @@
 		 <script type="text/javascript">
 			//<![CDATA[
 			  bkLib.onDomLoaded(function() {
-			        new nicEditor({iconsPath : '#{resource["img:nicEditorIcons.gif"]}'}).panelInstance('#{cc.clientId}:textarea');
+				  var myEditor = new nicEditor({iconsPath : '#{resource["img:nicEditorIcons.gif"]}'}).panelInstance('#{cc.clientId}:textarea');
+				  myEditor.addEvent('blur', function() {
+					myEditor.instanceById('#{cc.clientId}:textarea').saveContent();
+				  });
 			  });
 			  //]]>
  		 </script>
