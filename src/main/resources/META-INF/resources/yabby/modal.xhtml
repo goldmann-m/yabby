@@ -4,27 +4,42 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 	<cc:interface>
+		<cc:attribute name="fadeIn" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="showCloseButton" default="true" type="java.lang.Boolean"/>
+		<cc:attribute name="title" required="true" type="java.lang.String"/>
+		
+		<cc:attribute name="renderButton" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="buttonClass" type="java.lang.String"/>
+		<cc:attribute name="buttonTitle" required="#{cc.attrs.renderButton}" type="java.lang.String"/>
 	</cc:interface>
+
 	<cc:implementation>
-		<h:outputStylesheet name="bootstrap/bootstrap.min.css" library="jsf"/>
-		<h:outputScript name="jquery-1.7.1.min.js" library="js" />
-		<h:outputScript name="bootstrap/bootstrap.min.js" library="js" />
 		<h:outputScript name="bootstrap/bootstrap-modal.js" library="js" />
 
-		<div class="modal hide" id="myModal">
+		<div class="modal hide #{cc.attrs.fadeIn ? 'fade' : ''}" id="#{cc.id}">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h3>Modal header</h3>
+				<ui:fragment rendered="#{cc.attrs.showCloseButton}">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+				</ui:fragment>
+
+				<h3><h:outputText value="#{cc.attrs.title}"/></h3>
 			</div>
+
 			<div class="modal-body">
-				<p>One fine body…</p>
+				<cc:renderFacet name="content"/>
 			</div>
+
 			<div class="modal-footer">
-				<a href="#" class="btn" data-dismiss="modal">Close</a>
-				<a href="#" class="btn btn-primary">Save changes</a>
+				<cc:renderFacet name="footer"/>
 			</div>
 		</div>
 
-		<a class="btn" data-toggle="modal" href="#myModal">Launch Modal</a>
+		<ui:fragment rendered="#{not cc.attrs.renderButton}">
+			<cc:renderFacet name="buttons" />
+		</ui:fragment>
+
+		<ui:fragment rendered="#{cc.attrs.renderButton}">
+			<a class="btn #{cc.attrs.buttonClass}" data-toggle="modal" href="##{cc.id}">#{cc.attrs.buttonTitle}</a>		
+		</ui:fragment>
 	</cc:implementation>
 </ui:composition>
