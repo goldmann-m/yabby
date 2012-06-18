@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<cc:interface>
+		<cc:attribute name="defaultTheme" default="true" type="java.lang.Boolean"/>
+		<cc:attribute name="dropdown" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="docs" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="modal" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="responsive" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="scrollspy" default="false" type="java.lang.Boolean"/>
+	</cc:interface>
+
+	<cc:implementation>
+		<h:outputStylesheet name="bootstrap/bootstrap.min.css" library="css" rendered="#{cc.attrs.defaultTheme}"/>
+		<h:outputStylesheet name="bootstrap/bootstrap-responsive.min.css" library="css" rendered="#{cc.attrs.responsive}"/>
+		<h:outputStylesheet name="bootstrap/docs.css" library="css" rendered="#{cc.attrs.docs}"/>
+
+		<h:outputScript name="bootstrap/bootstrap.min.js" library="js"/>
+		<h:outputScript name="bootstrap/bootstrap-dropdown.js" library="js" rendered="#{cc.attrs.dropdown}"/>
+		<h:outputScript name="bootstrap/bootstrap-modal.js" library="js" rendered="#{cc.attrs.modal}"/>
+		<h:outputScript name="bootstrap/bootstrap-scrollspy.js" library="js" rendered="#{cc.attrs.scrollspy}"/>
+	</cc:implementation>
+</ui:composition>
