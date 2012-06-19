@@ -27,7 +27,7 @@
   <attribute>
    <description>Flag whether the default CSS should be rendered or not</description>
    <name>defaultTheme</name>
-   <required>true</required>
+   <required>false</required>
    <type>java.lang.Boolean</type>
   </attribute>
  </tag>
