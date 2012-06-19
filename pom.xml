@@ -33,5 +33,10 @@
   		<scope>provided</scope>
 		<optional>true</optional>
   	</dependency>
+  	<dependency>
+  		<groupId>com.sun.faces</groupId>
+  		<artifactId>jsf-api</artifactId>
+  		<version>2.1.9</version>
+  	</dependency>
   </dependencies>
 </project>
