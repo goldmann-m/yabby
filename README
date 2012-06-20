@@ -1,0 +1,119 @@
+This is how the taglib should look like:
+
+<?xml version="1.0"?>
+<facelet-taglib version="2.0"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd">
+	<namespace>http://www.w0mb.at/yabby</namespace>
+
+	<tag>
+		<description>Integration of the Twitter Bootstrap framework.</description>
+		<tag-name>bootstrap</tag-name>
+		<source>resources/yabby/bootstrap.xhtml</source>
+
+		<attribute>
+			<description>Defines whether the default theme should be rendered or not (default = true).</description>
+			<name>defaultTheme</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines whether the docs theme should be rendered or not (default = false).</description>
+			<name>docs</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines whether the dropdown component should be enabled(rendered) or not (default = false).</description>
+			<name>dropdown</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines whether the modal component should be enabled(rendered) or not (default = false).</description>
+			<name>modal</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines whether the responsive design should be enabled(rendered) or not (default = false).</description>
+			<name>responsive</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines whether the scrollspy component should be enabled(rendered) or not (default = false).</description>
+			<name>scrollspy</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>A composite component around the nicEdit editor.</description>
+		<tag-name>editor</tag-name>
+		<source>./resources/yabby/editor.xhtml</source>
+
+		<attribute>
+			<description>The value that should be used for the textarea. This can of course be a binding to a backing bean.</description>
+			<name>value</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>A composite component around the fancyBox</description>
+		<tag-name>fancybox</tag-name>
+		<source>fancybox.xhtml</source>
+
+		<attribute>
+			<description>The jQuery selector used to create the fancyBox for.</description>
+			<name>domSelector</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>A composite component around the modal panel of Twitter Bootstrap</description>
+		<tag-name>modal</tag-name>
+		<source>modal.xhtml</source>
+
+		<attribute>
+			<description>Defines whether the fadeIn effect should be activated or not (default = false).</description>
+			<name>fadeIn</name>
+			<type>java.lang.Boolean</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines whether the close button should be rendered or not (default = true).</description>
+			<name>showCloseButton</name>
+			<type>java.lang.Boolean</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines the title that should be used for the modal window.</description>
+			<name>title</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines whether a default button should be rendered instead of a custom one (default = false). If you activate this, you also have to define the buttonTitle attribute.</description>
+			<name>renderButton</name>
+			<type>java.lang.Boolean</type>
+		</attribute>
+
+		<attribute>
+			<description>Defines the title used for the default button. This attribute has to be defined as soon as you activate the renderButton.</description>
+			<name>buttonTitle</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+</facelet-taglib>

@@ -1,34 +1,7 @@
 <?xml version="1.0"?>
-<facelet-taglib version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd">
- <namespace>http://www.w0mb.at/yabby</namespace>
- <composite-library-name>yabby</composite-library-name>
- <tag>
-  <description>A composite component around the nicEdit editor</description>
-  <tag-name>editor</tag-name>
-  <component>
-   <component-type/>
-   <handler-class/>
-  </component>
-  <attribute>
-   <description>The value that should be used for the textarea</description>
-   <name>value</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Integration of the Twitter Bootstrap framework</description>
-  <tag-name>bootstrap</tag-name>
-  <component>
-   <component-type/>
-   <handler-class/>
-  </component>
-  <attribute>
-   <description>Flag whether the default CSS should be rendered or not</description>
-   <name>defaultTheme</name>
-   <required>false</required>
-   <type>java.lang.Boolean</type>
-  </attribute>
- </tag>
+<facelet-taglib version="2.0"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd">
+	<namespace>http://www.w0mb.at/yabby</namespace>
+	<composite-library-name>yabby</composite-library-name>
 </facelet-taglib>
