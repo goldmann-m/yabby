@@ -1,0 +1,18 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:cc="http://java.sun.com/jsf/composite" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+	<cc:interface>
+		<cc:attribute name="value" required="false" />
+	</cc:interface>
+	<cc:implementation>
+		<h:outputStylesheet name="jquery.rating.css" library="css"></h:outputStylesheet>
+		<h:outputScript name="jquery.rating.js" library="js"></h:outputScript>
+		<h:selectOneMenu styleClass="rating">
+			<f:selectItem itemValue="0" itemLabel="0" />
+			<f:selectItem itemValue="1" itemLabel="1" />
+			<f:selectItem itemValue="2" itemLabel="2" />
+			<f:selectItem itemValue="3" itemLabel="3" />
+		</h:selectOneMenu>
+		<script type="text/javascript">
+			$(".rating").rating();
+		</script>
+	</cc:implementation>
+</ui:composition>
