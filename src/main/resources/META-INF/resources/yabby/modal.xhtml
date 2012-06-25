@@ -14,6 +14,8 @@
 	</cc:interface>
 
 	<cc:implementation>
+		<h:outputScript name="bootstrap-modal.js" library="js/bootstrap"/>
+
 		<div class="modal hide #{cc.attrs.fadeIn ? 'fade' : ''}" id="#{cc.id}">
 			<div class="modal-header">
 				<ui:fragment rendered="#{cc.attrs.showCloseButton}">
