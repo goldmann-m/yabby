@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<cc:interface>
+		<cc:attribute name="showCloseButton" default="true" type="java.lang.Boolean"/>
+		<cc:attribute name="warn" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="error" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="success" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="info" default="false" type="java.lang.Boolean"/>
+		<cc:attribute name="closeListener"/>
+	</cc:interface>
+
+	<cc:implementation>
+		<div class="alert #{cc.attrs.warn ? 'alert-block' : ''} #{cc.attrs.error ? 'alert-error' : ''} #{cc.attrs.success ? 'alert-success' : ''} #{cc.attrs.info ? 'alert-info' : ''}">
+			<ui:fragment rendered="#{cc.attrs.showCloseButton}">
+		        <button type="button" class="close" data-dismiss="alert">×</button>
+	        </ui:fragment>
+
+			<cc:renderFacet name="content"/>
+    	</div>
+	</cc:implementation>
+</ui:composition>
