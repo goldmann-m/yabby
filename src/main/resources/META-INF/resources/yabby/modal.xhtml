@@ -11,12 +11,15 @@
 		<cc:attribute name="renderButton" default="false" type="java.lang.Boolean"/>
 		<cc:attribute name="buttonClass" type="java.lang.String"/>
 		<cc:attribute name="buttonTitle" required="#{cc.attrs.renderButton}" type="java.lang.String"/>
+		
+		<cc:attribute name="width" default="500" type="java.lang.String"/>
+		<cc:attribute name="bodyHeight" default="500" type="java.lang.String"/>
 	</cc:interface>
 
 	<cc:implementation>
 		<h:outputScript name="bootstrap-modal.js" library="js/bootstrap"/>
 
-		<div class="modal hide #{cc.attrs.fadeIn ? 'fade' : ''}" id="#{cc.id}">
+		<div class="modal hide #{cc.attrs.fadeIn ? 'fade' : ''}" id="#{cc.id}" style="width: #{cc.attrs.width}px; margin-left: -#{cc.attrs.width / 2}px;">
 			<div class="modal-header">
 				<ui:fragment rendered="#{cc.attrs.showCloseButton}">
 					<button type="button" class="close" data-dismiss="modal">×</button>
@@ -25,7 +28,7 @@
 				<h3><h:outputText value="#{cc.attrs.title}"/></h3>
 			</div>
 
-			<div class="modal-body">
+			<div class="modal-body" style="max-height: #{cc.attrs.bodyHeight}px;">
 				<cc:renderFacet name="content"/>
 			</div>
 
@@ -39,7 +42,7 @@
 		</ui:fragment>
 
 		<ui:fragment rendered="#{cc.attrs.renderButton}">
-			<a class="btn #{cc.attrs.buttonClass}" data-toggle="modal" href="##{cc.id}">#{cc.attrs.buttonTitle}</a>		
+			<a class="btn #{cc.attrs.buttonClass}" data-toggle="modal" href="##{cc.id}">#{cc.attrs.buttonTitle}</a>
 		</ui:fragment>
 	</cc:implementation>
 </ui:composition>

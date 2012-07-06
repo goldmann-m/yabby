@@ -5,6 +5,7 @@
   <!-- INTERFACE -->
 	<cc:interface>
 		<cc:attribute name="domSelector" required="true" type="java.lang.String"/>
+		<cc:attribute name="contentType" default="image" type="java.lang.String"/>
 	</cc:interface>
 
   <!-- IMPLEMENTATION -->          
@@ -21,6 +22,7 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#{cc.attrs.domSelector}").fancybox({
+					type: '#{cc.attrs.contentType}',
 					openEffect	: 'fade',
 					prevEffect	: 'fade',
 					nextEffect	: 'fade',
